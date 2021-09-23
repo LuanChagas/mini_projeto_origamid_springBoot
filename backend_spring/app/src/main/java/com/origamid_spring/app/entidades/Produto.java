@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.origamid_spring.DTO.ProdutoDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,6 +39,15 @@ public class Produto {
 
        @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
        private List<Foto> fotos;
+
+       public Produto(ProdutoDTO dto) {
+              id = dto.getId();
+              nome = dto.getNome();
+              preco = dto.getPreco();
+              descricao = dto.getDescricao();
+              vendido = dto.getVendido();
+              fotos = dto.getFotos();
+       }
 
        public void addFoto(Foto foto) {
               if (foto != null) {
