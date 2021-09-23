@@ -6,7 +6,7 @@ import Head from "../Head/Head";
 const Produtos = () => {
   const [produtos, setProdutos] = React.useState(null);
   React.useEffect(() => {
-    fetch("https://ranekapi.origamid.dev/json/api/produto")
+    fetch("http://localhost:8080/api/produto")
       .then((r) => r.json())
       .then((json) => setProdutos(json));
   }, []);

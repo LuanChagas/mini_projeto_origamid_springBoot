@@ -1,14 +1,20 @@
 package com.origamid_spring.app.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.origamid_spring.app.entidades.Foto;
 import com.origamid_spring.app.entidades.Produto;
 import com.origamid_spring.app.servicos.ProdutoServico;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,9 +43,17 @@ public class ProdutoController {
               return "ok";
        }
 
+       @CrossOrigin
        @GetMapping
        public List<Produto> findAll() {
               return produtoServico.findAll();
+       }
+
+       @CrossOrigin
+       @GetMapping("/{id}")
+       public ResponseEntity<Produto> findById(@PathVariable("id") String id) {
+              return ResponseEntity.ok(produtoServico.findById(id)
+                            .orElseThrow(() -> new NoSuchElementException("Produto não encontrado")));
        }
 
 }

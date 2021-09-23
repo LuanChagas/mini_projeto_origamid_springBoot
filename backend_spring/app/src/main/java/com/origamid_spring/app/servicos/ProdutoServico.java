@@ -1,6 +1,7 @@
 package com.origamid_spring.app.servicos;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.origamid_spring.app.entidades.Produto;
 import com.origamid_spring.app.repositorios.ProdutoRepositorio;
@@ -22,5 +23,9 @@ public class ProdutoServico {
 
        public List<Produto> findAll() {
               return produtoRepositorio.findAll();
+       }
+
+       public Optional<Produto> findById(String id) {
+              return produtoRepositorio.findById(id);
        }
 }
