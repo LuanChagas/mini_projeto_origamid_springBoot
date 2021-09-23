@@ -1,28 +1,31 @@
 package com.origamid_spring.app.entidades;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_produtos")
+@Table(name = "TB_PRODUTOS")
 public class Produto {
        @Id
-       @GeneratedValue(strategy = GenerationType.IDENTITY)
-       private Long id;
+       private String id;
 
        private String nome;
 
@@ -32,7 +35,17 @@ public class Produto {
 
        private Boolean vendido;
 
-       @OneToMany
+       @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
        private List<Foto> fotos;
+
+       public void addFoto(Foto foto) {
+              if (foto != null) {
+                     if (fotos == null) {
+                            fotos = new ArrayList<Foto>();
+                     }
+                     fotos.add(foto);
+                     foto.setProduto(this);
+              }
+       }
 
 }

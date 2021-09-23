@@ -8,11 +8,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,13 +26,20 @@ import lombok.NoArgsConstructor;
 public class Foto {
        @Id
        @GeneratedValue(strategy = GenerationType.IDENTITY)
-       private String id;
+       private Long id;
 
        private String titulo;
 
        private String src;
+
        @ManyToOne
-       @JoinColumn(name = "produto_id", nullable = false)
+       @JoinColumn(name = "produto_id")
+       @JsonIgnore
        private Produto produto;
+
+       @Override
+       public String toString() {
+              return "Foto [id=" + id + ", produto=" + produto + ", src=" + src + ", titulo=" + titulo + "]";
+       }
 
 }
