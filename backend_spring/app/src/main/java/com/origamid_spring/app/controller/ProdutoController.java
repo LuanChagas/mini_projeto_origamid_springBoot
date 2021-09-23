@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-import com.origamid_spring.DTO.ProdutoDTO;
+import com.origamid_spring.app.DTO.ProdutoDTO;
 import com.origamid_spring.app.entidades.Foto;
 import com.origamid_spring.app.entidades.Produto;
 import com.origamid_spring.app.servicos.ProdutoServico;
@@ -30,7 +30,7 @@ public class ProdutoController {
        public String createProduto(@RequestBody Produto produto) {
               /*
                * essa função, essa pequena função, (addFotos), me fez andar em circulos por
-               * cerca de 6 horas. Mas no final, deu tudo certo!!!
+               * cerca de 6 horas. Mas no final, deu tudo certo!!! :)
                */
               if (!produto.getFotos().isEmpty()) {
                      List<Foto> fotos = produto.getFotos().stream().collect(Collectors.toList());

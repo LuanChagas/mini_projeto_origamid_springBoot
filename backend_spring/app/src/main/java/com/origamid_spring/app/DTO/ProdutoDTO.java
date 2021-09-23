@@ -1,4 +1,4 @@
-package com.origamid_spring.DTO;
+package com.origamid_spring.app.DTO;
 
 import java.math.BigDecimal;
 import java.util.List;

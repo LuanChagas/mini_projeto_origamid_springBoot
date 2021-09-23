@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.origamid_spring.DTO.ProdutoDTO;
+import com.origamid_spring.app.DTO.ProdutoDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

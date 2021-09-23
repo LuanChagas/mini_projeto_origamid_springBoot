@@ -1,4 +1,4 @@
-package com.origamid_spring.DTO;
+package com.origamid_spring.app.DTO;
 
 import com.origamid_spring.app.entidades.Foto;
 import com.origamid_spring.app.entidades.Produto;

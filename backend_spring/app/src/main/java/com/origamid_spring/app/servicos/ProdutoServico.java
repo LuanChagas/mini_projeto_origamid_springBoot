@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.origamid_spring.DTO.ProdutoDTO;
+import com.origamid_spring.app.DTO.ProdutoDTO;
 import com.origamid_spring.app.entidades.Produto;
 import com.origamid_spring.app.repositorios.ProdutoRepositorio;
 
