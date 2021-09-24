@@ -51,7 +51,6 @@ public class ProdutoController {
        @CrossOrigin
        @GetMapping("/{id}")
        public ResponseEntity<ProdutoDTO> findById(@PathVariable("id") String id) {
-
               return ResponseEntity.ok(produtoServico.findById(id)
                             .orElseThrow(() -> new NoSuchElementException("Produto não encontrado")));
        }
