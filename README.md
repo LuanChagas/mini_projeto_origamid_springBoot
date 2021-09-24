@@ -11,6 +11,19 @@ O app faz algumas requisições a API REST da própria Origamid. Requisições d
 
 Como venho estudado a stack Spring-React, decidi fazer a API , da onde o frontend faz as requisições, no Spring Boot.
 
-# O que estou usando :construction_worker:
+# O que utilizei :construction_worker:
 
-:warning:  ......Em desenvolvimento
+ 
+
+backend
+ - SpringBoot 2.5.4
+ - maven
+ - java jdk 11
+ - Lombok
+ - JPA/hibernate(persistencia no banco de dados)
+ - bancos de dados h2-database e mysql
+
+
+frontend
+
+ - React web
