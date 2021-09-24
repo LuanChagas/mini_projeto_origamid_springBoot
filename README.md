@@ -13,7 +13,7 @@ Como venho estudado a stack Spring-React, decidi fazer a API , da onde o fronten
 
 # O que utilizei :construction_worker:
 
- 
+ Desenvolvimento foi usando WSL/ubuntu;
 
 backend
  - SpringBoot 2.5.4
